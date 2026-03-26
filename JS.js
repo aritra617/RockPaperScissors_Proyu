@@ -1,75 +1,59 @@
-// Soft greeting instead of alert
-let userScore = 0;
-let compScore = 0;
+alert(`Hi Proyukta! Let's play the game...hehe`);
 
-const choices = document.querySelectorAll(".choice");
-const msg = document.querySelector("#msg");
-const usUpdate = document.querySelector("#user-score");
-const csUpdate = document.querySelector("#comp-score");
+let userScore=0;
+let compScore=0;
 
-// Initial message
-msg.innerText = "Hey Proyukta 😌 Pick your move.";
+const choices=document.querySelectorAll(".choice");
+const msg=document.querySelector("#msg");
+const usUpdate=document.querySelector("#user-score");
+const csUpdate=document.querySelector("#comp-score");
 
-// Click handling
-choices.forEach((choice) => {
-    choice.addEventListener("click", () => {
-        const uc = choice.getAttribute("id");
+choices.forEach((choice)=>{
+    choice.addEventListener("click", ()=>{
+        const uc=choice.getAttribute("id");
         play(uc);
     });
 });
 
-// Generate computer choice
-const genComp = () => {
-    const opt = ["rock", "paper", "scissors"];
-    const i = Math.floor(Math.random() * 3);
-    return opt[i];
+const genComp=()=>{
+    const opt=["rock","paper","scissors"];
+    return opt[Math.floor(Math.random()*3)];
 };
 
-// Main function
-const play = (uc) => {
+const play=(uc)=>{
 
-    const cc = genComp();
+    const cc=genComp();
 
-    // DRAW
-    if (uc === cc) {
-        msg.innerText = `Same move, its a draw (${cc})`;
-        msg.style.background = "linear-gradient(135deg, #FFD0EC, #FF9BD2)";
-    } 
-    else {
+    if(uc===cc){
+        msg.innerText="Ok it's a Draw";
+        alert(`Computer chose ${cc}`);
+        msg.style.backgroundColor="#872341";
+    }else{
 
-        let userwin = true;
+        let userwin=true;
 
-        if (uc === "rock") {
-            userwin = cc === "paper" ? false : true;
-        } 
-        else if (uc === "paper") {
-            userwin = cc === "scissors" ? false : true;
-        } 
-        else if (uc === "scissors") {
-            userwin = cc === "rock" ? false : true;
+        if(uc==="rock"){
+            userwin= cc==="paper"? false : true;
+        }else if(uc==="paper"){
+            userwin= cc==="scissors"? false : true;
+        }else{
+            userwin= cc==="rock"? false : true;
         }
 
-        // USER WINS
-        if (userwin) {
+        if(userwin){
             userScore++;
-            usUpdate.innerText = userScore;
+            usUpdate.innerText=userScore;
 
-            msg.innerText = `YAYY Proyukta wins 😌 ${uc} beats ${cc}`;
-            msg.style.background = "linear-gradient(135deg, #A8FF78, #78FFD6)";
-        } 
-        // USER LOSES
-        else {
+            alert(`Computer chose ${cc}`);
+            msg.innerText=`Yayy Proyukta WINS😌 !! your ${uc} beats ${cc}`;
+            msg.style.backgroundColor="#1F7D53";
+        }else{
             compScore++;
-            csUpdate.innerText = compScore;
+            csUpdate.innerText=compScore;
 
-            msg.innerText = `Eh you lose 😑 ${cc} beats ${uc}`;
-            msg.style.background = "linear-gradient(135deg, #FF6A6A, #FF9A9E)";
+            alert(`Computer chose ${cc}`);
+            msg.innerText=`Eh You LOSE😑, ${cc} beats your ${uc}`;
+            msg.style.backgroundColor="#7D0A0A";
         }
     }
-
-    // Smooth little pop animation
-    msg.style.transform = "scale(1.05)";
-    setTimeout(() => {
-        msg.style.transform = "scale(1)";
-    }, 150);
 };
