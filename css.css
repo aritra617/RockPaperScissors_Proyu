@@ -6,7 +6,7 @@
     color:#D8C4B6;
 }
 
-/* Container for mobile */
+/* Container */
 .container{
     width: 100%;
     max-width: 420px;
@@ -14,22 +14,25 @@
     padding: 10px;
 }
 
+/* Heading */
 h1{
     font-family:Big Shoulders Inline;
     font-size:6vh;
     font-weight:bold;
     padding-top:10px;
     letter-spacing: 2px;
+    line-height: 1.2;
 }
 
+/* Choices */
 .choice{
-    height:165px;
-    width:165px;
+    height:180px;
+    width:180px;
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items: center;
-    margin-top:4rem;
+    margin-top:3rem;
     transition: 0.3s ease;
 }
 
@@ -40,47 +43,48 @@ h1{
 }
 
 img{
-    height:160px;
-    width:160px;
+    height:170px;
+    width:170px;
     object-fit: cover;
     border-radius: 50%;
-    transition: 0.3s ease;
 }
 
 .choices{
     display:flex;
     justify-content: center;
     align-items:center;
-    gap:4rem;
+    gap:3rem;
     flex-wrap: wrap;
 }
 
+/* Scoreboard (bigger) */
 .sc-board{
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size:2.5rem;
-    margin-top: 5rem;
-    gap:4rem;
+    font-size:3rem;
+    margin-top: 4rem;
+    gap:3rem;
     font-family: 'Poppins', sans-serif;
 }
 
 .score p:last-child{
     font-family: 'Pacifico', cursive;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-top: 5px;
     color: #FFD0EC;
 }
 
 #user-score,
 #comp-score{
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 600;
     color: #FF9BD2;
 }
 
+/* Result */
 .result{
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 #msg{
@@ -94,21 +98,17 @@ img{
     font-family:Big Shoulders Stencil;
 }
 
-/* 📱 Mobile optimization */
+/* 📱 Mobile tuning */
 @media (max-width: 430px){
 
-    h1{
-        font-size:4.5vh;
-    }
-
     .choice{
-        height:110px;
-        width:110px;
+        height:130px;
+        width:130px;
     }
 
     img{
-        height:100px;
-        width:100px;
+        height:120px;
+        width:120px;
     }
 
     .choices{
@@ -122,7 +122,7 @@ img{
 
     #user-score,
     #comp-score{
-        font-size:3rem;
+        font-size:3.5rem;
     }
 
     #msg{
